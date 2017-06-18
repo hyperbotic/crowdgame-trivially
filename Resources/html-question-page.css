@@ -1,0 +1,186 @@
+* {
+  -webkit-text-size-adjust:none; 
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+/* trying to ensure that if Safari turns something into a link, it doesn't show up as one */
+a { text-decoration: none !important; }
+
+body{
+  background: url(assets/bkgnds/stage-no-curtain.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 1024px 768px;
+  height: 768px;
+  width: 1024px;
+  margin: 0px;
+}
+
+.stageElement {
+  position: inherit;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  z-index: 1000;
+/*  display: none;*/
+  opacity: 1;
+}
+#black {
+  height: 768px;
+  width: 1024px;
+  position: absolute;
+  opacity: 1;
+  -webkit-transition: opacity 500ms linear;
+}
+#left_front_curtain {
+  width: 514px;
+  height: 768px;
+  top: 0px;
+  left: 0px;
+  opacity: 1;
+  z-index: 999;
+}
+#right_front_curtain { 
+  width: 514px;
+  height: 768px;
+  top: 0px;
+  left: 512px;
+  opacity: 1;
+  z-index: 999;
+}
+
+#left_front_curtain, #right_front_curtain {
+  -webkit-transition: all 500ms ease-in;
+}
+
+#page_wrapper {
+  position: absolute;
+/*  opacity: 0;*/
+  opacity: 1;
+/*  -webkit-transition: opacity 1000ms linear;*/
+}
+
+.textStyle {
+  color: white;
+  font-family: "Helvetica Neue, Condensed Bold";
+/*  -webkit-hyphens: auto;
+  hyphens: auto;*/
+/*  word-wrap: break-word;*/
+  text-align: center; 
+/*  text-align: justify; /* TEST */
+/*  word-break: break-all; */
+}
+
+#question_container {
+  position: absolute;
+/*  top: 30px; */
+  top: 25px;
+  left: 40px;
+  width: 944px;
+  height: 215px;
+  background-image: url(assets/icons/question-background.png);
+  background-size: 944px 215px;
+  background-repeat: no-repeat;
+}
+
+.questionSizingContainer {
+  width: 848px;
+  height: 195px;
+  margin: 10px;
+  display: table;
+/*  table-layout: fixed;*/
+  table-layout: auto; /* trying to fix "Neuschwanstein Castle" */
+}
+
+#question {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 36px;
+}
+
+.answerContainer {
+  position: absolute;
+  width: 460px;
+  height: 206px;
+  background-size: 460px 206px;
+  background-repeat: no-repeat;
+}
+
+.answerSizingContainer {
+  width: 380px;
+  height: 186px;
+  margin-top: 10px;
+  display: table;
+/*  table-layout: fixed; */
+  table-layout: auto; /* trying to fix "Neuschwanstein Castle" */
+}
+
+.answerStyle {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 36px;
+  text-align: center;  /* TEST */
+  opacity: 1;
+}
+
+.answerStyle[emphasis="selected"] 
+{
+  opacity: 0.5;
+}
+
+.answerStyle[emphasis="correct"]
+{
+}
+
+.answerStyle[emphasis="incorrect"] 
+{
+  opacity: 0.3;
+}
+
+.answerLeft {
+  margin-left: 70px;
+}
+
+.answerRight {
+  margin-left: 10px;
+}
+
+#answer_A_container {
+/*  top: 265px; */
+  top: 247px;
+  left: 40px;
+  background-image: url(assets/icons/answer-A.png);
+}
+
+#answer_B_container {
+/*  top: 265px; */
+  top: 247px;
+  left: 524px;
+  background-image: url(assets/icons/answer-B.png);
+}
+
+#answer_C_container {
+/*  top: 486px;*/
+  top: 460px;
+  left: 40px;
+  background-image: url(assets/icons/answer-C.png);
+}
+
+#answer_D_container {
+/*  top: 486px; */
+  top: 460px;
+  left: 524px;
+  background-image: url(assets/icons/answer-D.png);
+}
+
+#debug {
+  position: absolute;
+  display: none;
+  top: 750px;
+  left: 0px;
+  width: 1024px;
+  height: 20px;
+  color: white;
+  font-size: 15px;
+}

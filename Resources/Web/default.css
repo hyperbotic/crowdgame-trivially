@@ -1,0 +1,445 @@
+/* http://www.engageinteractive.co.uk/blog/2008/06/19/tutorial-building-a-website-for-the-iphone/ */
+/*-----------------------------
+RESET STYLES
+-----------------------------*/
+
+* {
+  -webkit-text-size-adjust:none; /* This stops the iPhone from automatically changing the size of the text when you flip the phone */
+}
+
+* {
+    -webkit-touch-callout: none;
+}
+
+/*-----------------------------
+	SITE SPECIFIC STYLES
+-----------------------------*/
+
+body{
+  background:#000;
+  font-family: "Trebuchet MS";
+  color:white;
+}
+
+.controlDiv {
+  display: none;
+}
+
+.controlDiv[format^="small-portrait"] {
+width: 100px; 
+height: 115px; 
+}
+.controlDiv[format^="small-landscape"] {
+width: 90px; 
+height: 115px; 
+}
+.controlDiv[format="medium-portrait"] {
+width: 200px; 
+height: 230px; 
+}
+.controlDiv[format="medium-landscape"] {
+width: 200px; 
+height: 230px; 
+}
+
+.controlButtons {
+  background-repeat: no-repeat;
+  background-color: transparent; 
+  background-size: 67px 67px;
+  width: 67px;
+  height: 67px;
+  margin: auto;
+}
+
+.controlLabels {
+  background-repeat: no-repeat;
+  background-color: transparent; 
+  background-size: 72px 39px;
+  width: 67px;
+  height: 36px;
+  margin: auto;
+}
+
+/* LOGO */
+
+#logo {
+  position: inherit;
+  width: 143px;
+  height: 50px;
+  background-image:url(http://??/trivially/assets/icons/label-trivially.jpg);
+  background-size: 143px 50px;
+  z-index: 100000; /* So that it floats above alert */
+}
+#logo[density="2x"] {
+  background-image:url(http://??/trivially/assets/icons/label-trivially@2x.jpg);
+}
+#logo[format^="small-portrait"] {
+  top: 0px;
+  left: 88px;
+}
+#logo[format^="small-landscape"] {
+  top: 0px; /*-5px;*/
+  left: 168px;
+}
+#logo[format="medium-portrait"] {
+  width: 286px;
+  height: 100px;
+  background-image:url(http://??/trivially/assets/icons/label-trivially@2x.jpg);
+  background-size: 286px 100px;
+  top: 0px;
+  left: 242px;
+}
+#logo[format="medium-landscape"] {
+  width: 286px;
+  height: 100px;
+  background-image:url(http://??/trivially/assets/icons/label-trivially@2x.jpg);
+  background-size: 286px 100px;
+  top: 0px;
+  left: 369px;
+}
+
+/* PAGE_WRAPPER */
+.pageWrapper
+{
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: opacity 700ms linear;
+}
+
+/* http://www.idev101.com/code/User_Interface/sizes.html */
+
+.pageWrapper[format="small-portrait"] {
+ width: 320px;
+ height: 435px; /* 480 - status bar (20) - safari web bar (44) = 416. Add 15+ pixels for copyright, and to ensure that it's longer than physical screen, to enable scrolling */
+ top: 0px;
+ left: 0px;
+}
+
+/* iPhone 5 */
+.pageWrapper[format="small-portrait-iPhone4Inch"] {
+ height: 523px; /* 568 - 480 = 88 pixels taller. 435 + 88 = 523 */
+}
+
+.pageWrapper[format^="small-landscape"] {
+ width: 480px;
+/* height: 320px;*/
+ height: 285; /* 320 - status bar (20) - safari web bar (44) = 256. Add 15+ pixels, as above */
+ top: 0px;
+ left: 0px;
+}
+
+/* iPhone 5 */
+.pageWrapper[format^="small-landscape-iPhone4Inch"] {
+  margin-left: 44px; /* (568 - 480) / 2 = 44*/
+}
+
+.pageWrapper[format="medium-portrait"] {
+ width: 768px;
+ height: 946px;  
+ top: 0px;
+ left: 0px;
+}
+.pageWrapper[format="medium-landscape"]{
+ width: 1024px;
+ height: 690px;  
+ top: 0px;
+ left: 0px;
+}
+
+/* STAGE */
+.stage {
+  position: inherit;
+}
+
+.stage[format^="small-portrait"] {
+  top: 50px;
+  left: 23px;
+  width: 276px;
+  height: 200px;
+  background-size: 276px 200px; 
+}
+.stage[format^="small-landscape"] {
+  top: 52px;
+  left: 109px;
+  width: 261px;
+  height: 190px;
+  background-size: 261px 190px;
+}
+.stage[format="medium-portrait"] {
+  top: 105px;
+  left: 109px;
+  width: 552px;
+  height: 400px;
+  background-size: 552px 400px; 
+}
+.stage[format="medium-landscape"] {
+  top: 105px;
+  left: 236px;
+  width: 552px;
+  height: 400px;
+  background-size: 552px 400px; 
+}
+
+/* **** */
+
+#stage_empty[format^="small-portrait"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-portrait.jpg);
+}
+#stage_empty[format^="small-landscape"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-landscape.jpg);
+}
+#stage_empty[format^="small-portrait"][density="2x"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-portrait@2x.jpg);
+}
+#stage_empty[format^="small-landscape"][density="2x"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-landscape@2x.jpg);
+}
+#stage_empty[format^="medium"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-portrait@2x.jpg);
+}
+
+#stage_answers[format^="small-portrait"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-answers-portrait.jpg);
+}
+#stage_answers[format^="small-landscape"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-answers-landscape.jpg);
+}
+#stage_answers[format^="small-portrait"][density="2x"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-answers-portrait@2x.jpg);
+}
+#stage_answers[format^="small-landscape"][density="2x"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-answers-landscape@2x.jpg);
+}
+#stage_answers[format^="medium"] {
+ background-image: url(http://??/trivially/assets/bkgnds/curtain-answers-portrait@2x.jpg);
+}
+
+/* INFO */
+.infoClass {
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  z-index: 100;
+  position: inherit;
+}
+.infoClass[format^="small-portrait"] {
+  left: 23px;
+  width: 276px;
+}
+.infoClass[format^="small-landscape"] {
+  left: 99px;
+  width: 282px;
+}
+.infoClass[format="medium-portrait"] {
+  height: 30px;
+  left: 109px;
+  width: 552px;
+  font-size: 26px;
+}
+.infoClass[format="medium-landscape"]{
+  height: 30px;
+  left: 236px;
+  width: 552px;
+  font-size: 26px;
+}
+#info[format^="small-portrait"] {
+  top: 250px;
+}
+#info[format^="small-landscape"] {
+  top: 245px; /*250px;*/
+}
+#info[format="medium-portrait"] {
+  top: 515px;
+}
+#info[format="medium-landscape"]{
+  top: 515px;
+}
+
+#spinner{
+  display: block;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-size: 40px 40px;
+  z-index: 300;
+/*  background-color: white;*/
+}
+
+.spinner1 {
+  top: 50%;
+  left: 50%;
+}
+
+/*
+#spinner{
+  display: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-size: 40px 40px;
+  z-index: 300;
+  -webkit-mask-image: url(http://??/trivially/assets/icons/spinner.png);
+  background-color: white;
+  -webkit-animation-name: spinnerRotate;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+#spinner[format^="medium"] {
+  -webkit-mask-image: url(http://??/trivially/assets/icons/spinner@2x.png);
+}
+*/
+/*
+#spinner[density="2x"] {
+  -webkit-mask-image: url(http://??/trivially/assets/icons/spinner@2x.png);
+}
+*/
+
+@-webkit-keyframes spinnerRotate {
+	from {
+		-webkit-transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(360deg);
+	}
+}
+
+#spinner[format^="small-portrait"] {
+  top: 185px;
+  left: 141px;
+}
+#spinner[format^="small-landscape"] {
+  top: 185px;
+  left: 220px;
+}
+#spinner[format="medium-portrait"] {
+  top: 320px;
+  left: 345px;
+  height: 80px;
+  width: 80px;
+}
+#spinner[format="medium-landscape"] {
+  top: 320px;
+  left: 472px;
+  height: 80px;
+  width: 80px;
+}
+
+#copyright {
+  position: inherit;
+  height: 15px;
+  font-size:6px;
+  text-align:left;
+}
+#copyright[format^="small-portrait"] {
+  width: 320px;
+  left: 0px;
+/*  top: 410px;*/
+  bottom: 0px;
+}
+#copyright[format^="small-landscape"] {
+  left: 99px;
+  bottom: 0px;
+  width: 282px;
+}
+#copyright[format="medium-portrait"] {
+  width: 640px;
+  left: 0px;
+  bottom: 0px;
+  font-size:10px;
+}
+#copyright[format="medium-landscape"] {
+  width: 640px;
+  left: 0px;
+  bottom: 0px;
+  font-size:10px;
+}
+
+#debug {
+  position: inherit;
+  display: block;
+  width: 320px;
+  height: 20px;
+  color:white;
+  font-size:8px;
+  text-align:left;
+}
+#debug[format^="small-portrait"] {
+  bottom: -50px;
+  left: 0px;
+}
+#debug[format^="small-landscape"] {
+  bottom: -30px;
+  left: 0px;
+}
+#debug[format="medium-portrait"] {
+  bottom: -50px;
+  left: 0px;
+}
+#debug[format="medium-landscape"] {
+  bottom: -50px;
+  left: 0px;
+}
+
+#test {
+  position: inherit;
+  display: block;
+  width: 40px;
+  height: 20px;
+  color:black;
+  font-size:8px;
+  text-align:center;
+  display: none;
+}
+#test[format^="small-portrait"] {
+  bottom: -70px;
+  left: 0px;
+}
+#test[format^="small-landscape"] {
+  bottom: -50px;
+  left: 0px;
+  color: black
+}
+#test[format="medium-portrait"] {
+  bottom: -70px;
+  left: 0px;
+}
+#test[format="medium-landscape"] {
+  bottom: -70px;
+  left: 0px;
+}
+
+/* JOIN */
+#join_button {
+  position: inherit;
+}
+#join_button_label {
+background-image: url("http://??/trivially/assets/icons/label-join-1.jpg");
+}
+#join_button_label[density="2x"] {
+background-image: url("http://??/trivially/assets/icons/label-join-1@2x.jpg");
+}
+#join_button_image {
+background-image: url("http://??/trivially/assets/icons/button-play.jpg");
+}
+#join_button_image[density="2x"] {
+background-image: url("http://??/trivially/assets/icons/button-play@2x.jpg");
+}
+#join_button[format^="small-portrait"] {
+  top: 270px;
+  left: 110px;
+}
+#join_button[format^="small-landscape"] {
+  top: 114px;
+  left: 5px;
+}
+#join_button[format="medium-portrait"] {
+  top: 555px;
+  left: 285px;
+}
+#join_button[format="medium-landscape"] { 
+  top: 203px;
+  left: 0px;
+}
+

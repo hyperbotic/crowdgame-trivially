@@ -1,0 +1,167 @@
+<!-- CrowdGame Trivially web-based player -->
+<!---->
+<html lang="en">
+<head>
+
+<!-- http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="description" content="Welcome to CrowdGame Trivially, a trivia party game for the iPad!" />
+
+<!-- Consider removing width specification: -->
+<!-- http://www.kylejlarson.com/blog/2012/iphone-5-web-design/ -->
+
+<meta name="viewport" content="user-scalable=no, width=device-width,
+initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no">
+
+<script type="text/javascript">
+window.onerror=function(msg, url, linenumber){
+ alert('Javascript Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber)
+ return true
+}
+function loaded() {
+  remoteApp.loaded();
+}
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="default.css" />            
+<link rel="stylesheet" type="text/css" href="remote-app.css" />
+
+<!-- we set the href for these programmatically -->
+<link id="stylesheet_link" rel="stylesheet" type="text/css" href=""/>
+
+<title>Play CrowdGame Trivially!</title>
+<script src="web_utils.js-txt"></script>
+<script src="main.js-txt"></script>
+
+</head>
+<body onload="javascript:loaded();" onorientationchange="javascript:remoteApp.updateOrientation();">
+
+
+  <div id="alert" class="pageWrapper">
+      <div id="alert_background" class="stage">
+
+	<div id="alert_text_area">
+
+	  <div id="alert_text_1" class="alertText">
+            (alert text 1)
+          </div>
+
+          <input id="alert_input" type="text" size = "7">
+<!--          <input id="alert_input" type="text" size = "7"
+	  onblur="javascript:remoteApp.alertHandler('ok')" -->
+
+ 	  <div id="alert_text_2" class="alertText">
+            (alert text 2)
+          </div>
+
+	</div>
+
+      </div>
+
+     <div id="alert_ok_button" class="controlDiv alertDiv">	              	
+         <div id="alert_ok_button_image" class="controlButtons alertButtons" onclick="javascript:remoteApp.alertHandler('ok')"></div>
+         <div id="alert_ok_button_label" class="controlLabels alertLabels"></div>  
+      </div>
+
+      <div id="alert_cancel_button" class="controlDiv alertDiv">	              	
+        <div id="alert_cancel_button_image" class="controlButtons alertButtons" onclick="javascript:remoteApp.alertHandler('cancel')"></div>
+        <div id="alert_cancel_button_label" class="controlLabels alertLabels"></div>  
+      </div>
+  </div>    
+
+ <div id="page_wrapper" class="pageWrapper">
+
+  <div id="logo"></div>
+
+   <div id="stage_answers" class="stage">
+     <span ID="button_A" class="answerButton" side="left" onclick="javascript:remoteApp.sendAnswer(0)">
+     </span>
+
+     <span ID="button_B" class="answerButton" side="right" onclick="javascript:remoteApp.sendAnswer(1)">
+      </span>
+
+      <span ID="button_C" class="answerButton" side="left" onclick="javascript:remoteApp.sendAnswer(2)">
+      </span>
+
+      <span ID="button_D" class="answerButton" side="right" onclick="javascript:remoteApp.sendAnswer(3)">
+      </span>
+    </div> 
+
+    <div id="info" class="infoClass"></div>
+    <div id="info2" class="infoClass"></div>
+    <div id="info3" class="infoClass"></div>
+    
+<!--    <p id="spinner">Please wait...</p> -->
+     
+    <div id="stage_empty" class="stage">
+    </div>
+
+    <div id="avatar_container" class="controlDiv"
+    onclick="javascript:remoteApp.avatarClicked()">
+
+      <img id="avatar_image">
+
+      <div id="player_score">
+     </div>
+      
+     <div id="player_name">
+        PLAYER
+      </div>
+
+      <div id="player_name_hint">
+        Tap to Rename
+      </div>
+
+      </div>
+  
+    <div id="join_button" class="controlDiv" onclick="javascript:remoteApp.sendJoinRequested()">
+       <div id="join_button_image" class="controlButtons"></div>
+       <div id="join_button_label" class="controlLabels"></div>  
+    </div>	
+
+    <div id="start_game_button" class="controlDiv">	              	
+      <div id="start_game_button_image" class="controlButtons" onclick="javascript:remoteApp.sendNewGameRequested()"></div>
+      <div id="start_game_label" class="controlLabels"></div>  
+    </div>
+
+   <div id="pause_button" class="controlDiv">
+      <div id="pause_button_image" class="controlButtons" onclick="javascript:remoteApp.sendPauseRequested()"></div>
+      <div id="pause_label" class="controlLabels"></div>
+    </div>	
+
+    <div id="continue_button" class="controlDiv">
+      <div id="continue_button_image" class="controlButtons" onclick="javascript:remoteApp.sendContinueRequested()"></div>
+      <div id="continue_label" class="controlLabels"></div> 
+    </div>
+
+    <div id="new_game_button" class="controlDiv">	              	
+      <div id="new_game_button_image" class="controlButtons" onclick="javascript:remoteApp.sendNewGameRequested(true)"></div>
+      <div id="new_game_label" class="controlLabels"></div>  
+    </div>	
+
+    <div id="new_game_button2" class="controlDiv">	              	
+      <div id="new_game_button_image2" class="controlButtons" onclick="javascript:remoteApp.sendNewGameRequested(false)"></div>
+      <div id="new_game_label2" class="controlLabels"></div>  
+    </div>	
+
+    <div id="score_wrapper" class="controlDiv">
+       <div id="score_container" class="controlButtons">
+         <div id="score"></div>
+       </div>
+       <div id="score_label" class="controlLabels"></div>
+    </div>
+    <div id="copyright">
+    </div>
+    <br/>
+    <div id="debug"></div>
+    <button id="test" onclick="javascript:remoteApp.test()">Create</button> 
+ </div>
+</body>
+</html>
+

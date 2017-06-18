@@ -1,0 +1,52 @@
+<!-- CrowdGame Trivially web-based player -->
+<!---->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="copyright 2011 Hyperbotic Labs, Inc - http://hyperbotic.com" />
+<meta name="description" content="Welcome to CrowdGame Trivially, a trivia party game for the iPad!" />
+<meta name="viewport" content="user-scalable=no, width=1024,height=768,initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0"/>
+<meta name="format-detection" content="telephone=no">
+
+<script type="text/javascript">
+window.onerror=function(msg, url, linenumber){
+ alert('Javascript Error: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber)
+ return true
+}
+touchMove = function(event) {event.preventDefault();}
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="html-intro-page.css" />
+
+<script src="generated_js/html-page-utility.js"></script>
+<script src="generated_js/html-intro-page.js"></script>
+</head>
+
+<body onload="javascript:htmlPageUtility.loaded();" ontouchmove="javascript:touchMove(event);">
+
+  <div id="page_wrapper">
+    <img id="tv" class="stageElement"
+        onload="javascript:htmlPageUtility.loadedDelayedElement(9)"/>
+
+    <img id="background_full" class="stageElement"
+        onload="javascript:htmlPageUtility.loadedDelayedElement(15)"/>    
+
+    <img id="splash" class="stageElement"
+       onload="javascript:htmlPageUtility.loadedDelayedElement(16)"/>    
+
+    <img id="black" class="stageElement"
+        onload="javascript:htmlPageUtility.loadedDelayedElement(14)"/>    
+
+    <img id="left_front_curtain" class="stageElement"
+         onload="javascript:htmlPageUtility.loadedDelayedElement(11)"/>    
+    <img id="right_front_curtain" class="stageElement"
+         onload="javascript:htmlPageUtility.loadedDelayedElement(12)"/>
+
+    <img id="spotlights" class="stageElement"
+         onload="javascript:htmlPageUtility.loadedDelayedElement(22)"/>    
+</div>
+  <div id="debug">DEBUG</div>
+  </div>
+</body>
+</html>

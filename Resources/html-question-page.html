@@ -1,0 +1,75 @@
+<!-- CrowdGame Trivially web-based player -->
+<!---->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="copyright 2011 Hyperbotic Labs, Inc - http://hyperbotic.com" />
+<meta name="description" content="Welcome to CrowdGame Trivially, a trivia party game for the iPad!" />
+<meta name="viewport" content="user-scalable=no, width=1024,height=768,initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0"/>
+<meta name="format-detection" content="telephone=no">
+
+<script type="text/javascript">
+window.onerror=function(msg, url, linenumber){
+ alert('Javascript Error: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber)
+ return true
+}
+touchMove = function(event) {event.preventDefault();}
+</script>
+
+<link rel="stylesheet" type="text/css" href="html-question-page.css" />
+
+<script src="generated_js/html-page-utility.js"></script>
+<script src="generated_js/html-question-page.js"></script>
+
+</head>
+
+<body onload="javascript:htmlPageUtility.loaded();" ontouchmove="javascript:touchMove(event);">
+
+  <div id="page_wrapper">
+    <img id="black" class="stageElement"
+      onload="javascript:htmlPageUtility.loadedDelayedElement(1)" />
+  
+    <img id="left_front_curtain" class="stageElement"
+      onload="javascript:htmlPageUtility.loadedDelayedElement(2)"/>
+
+    <img id="right_front_curtain" class="stageElement"
+      onload="javascript:htmlPageUtility.loadedDelayedElement(3)"/>
+
+    <div id="question_container" class="textStyle">
+      <div class="questionSizingContainer">
+        <div id="question" class="textStyle"></div>
+      </div>
+    </div>
+
+    <div id="answers_container">
+
+      <div id="answer_A_container" class="answerContainer">
+	<div class="answerSizingContainer answerLeft">
+ 	  <div id="answer_A" class="textStyle answerStyle"></div>
+        </div>
+      </div>
+
+      <div id="answer_B_container" class="answerContainer">
+	<div class="answerSizingContainer answerRight">	
+          <div id="answer_B" class="textStyle answerStyle"></div>
+        </div>
+      </div>
+
+      <div id="answer_C_container" class="answerContainer">
+	<div class="answerSizingContainer answerLeft">	
+          <div id="answer_C" class="textStyle answerStyle"></div>
+        </div>
+      </div>
+
+      <div id="answer_D_container" class="answerContainer">
+	<div class="answerSizingContainer answerRight">	
+          <div id="answer_D" class="textStyle answerStyle"></div>
+        </div>	
+      </div>	
+
+   </div>
+
+    <div id="debug">DEBUG</div>
+  </div>
+</body>
+</html>
